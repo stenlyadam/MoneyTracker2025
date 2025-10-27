@@ -3,6 +3,7 @@ import React from 'react';
 import Header from '../../components/molecules/Header';
 import TextInput from '../../components/molecules/TextInput';
 import Button from '../../components/atoms/Button';
+import Gap from '../../components/atoms/Gap';
 
 const SignIn = () => {
   return (
@@ -13,9 +14,20 @@ const SignIn = () => {
           label="Email Address"
           placeholder="Type your email address"
         />
-        <TextInput label="Password" placeholder="Type your password" />
-        <Button />
-        <Button />
+        <Gap height={16} />
+        <TextInput
+          label="Password"
+          placeholder="Type your password"
+          secureTextEntry={true}
+        />
+        <Gap height={24} />
+        <Button label="Sign In" />
+        <Gap height={12} />
+        <Button
+          label="Create New Account"
+          color="#8D92A3"
+          textColor="#FFFFFF"
+        />
       </View>
     </View>
   );
