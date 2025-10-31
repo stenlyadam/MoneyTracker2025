@@ -17,6 +17,7 @@ const SignUp = () => {
           label="Email Address"
           placeholder="Type your email address"
           keyboardType="email-address"
+Lio/password_buttoncontinue
         />
         <Gap height={16} />
 
@@ -29,6 +30,10 @@ const SignUp = () => {
 
         <Gap height={30} />
         <Button label="Continue" />
+
+        />
+        <Gap height={16} />
+ development
       </View>
     </ScrollView>
   );
