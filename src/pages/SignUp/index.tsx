@@ -12,11 +12,22 @@ const SignUp = () => {
       <View style={styles.form}>
         <TextInput label="Full Name" placeholder="Type your full name" />
         <Gap height={16} />
+
         <TextInput
           label="Email Address"
           placeholder="Type your email address"
+          keyboardType="email-address"
         />
-        <Gap height={100} />
+        <Gap height={16} />
+
+        {/* Tambahan kolom Password */}
+        <TextInput
+          label="Password"
+          placeholder="Type your password"
+          secureTextEntry={true}
+        />
+
+        <Gap height={30} />
         <Button label="Continue" />
       </View>
     </ScrollView>
