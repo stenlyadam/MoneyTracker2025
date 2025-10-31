@@ -7,14 +7,17 @@ import Gap from '../../components/atoms/Gap';
 
 const SignIn = () => {
   return (
+
+
+
+
+     
+    
     <View style={styles.container}>
-      <Header label="Sign up" />
+      <Header label=" " />
       <View style={styles.contentWrapper}>
-        <TextInput
-          label="Email Address"
-          placeholder="Type your email address"
-        />
-        <Gap height={400} />
+
+        <Gap height={500} />
         <TextInput
           label="Password"
           placeholder="Type your password"
