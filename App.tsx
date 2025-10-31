@@ -96,6 +96,9 @@ function App(): React.JSX.Element {
   );
 }
 
+// ✅ Edit kecil tanpa mengubah fungsi apa pun
+// Ivana: tes edit branch 'development' (tidak mempengaruhi kode)
+
 const styles = StyleSheet.create({
   sectionContainer: {
     marginTop: 32,
