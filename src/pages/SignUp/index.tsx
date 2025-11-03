@@ -1,6 +1,8 @@
 import {StyleSheet, View, Image, TouchableOpacity} from 'react-native';
 import React from 'react';
 import Header from '../../components/molecules/Header';
+
+import Button from '../../components/atoms/Button'; 
 import TextInput from '../../components/molecules/TextInput';
 import Gap from '../../components/atoms/Gap';
 
@@ -44,7 +46,11 @@ const SignUp = () => {
         <Gap height={24} />
 
         {/* === Swindry: Buttons === */}
-
+   <View style={styles.buttonWrapper}>
+          <Button label="Continue" />
+          <Gap height={12} />
+          <Button label="Back to Sign In" color="#8D92A3" textColor="#FFFFFF" />
+        </View>
 
       </View>
     </View>
@@ -89,5 +95,8 @@ const styles = StyleSheet.create({
     borderBottomWidth: 0.5,
     borderColor: '#E5E5E5',
   },
-
+  buttonWrapper: {
+    marginTop: 12,
+    paddingBottom: 16,
+  },
 });
