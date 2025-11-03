@@ -1,0 +1,128 @@
+Bagus banget kamu kirim screenshot-nya — pesan error ini:
+
+```
+Cannot find module 'react-native-vector-icons/Ionicons' or its corresponding type declarations.
+```
+
+berarti TypeScript (dan mungkin bundler React Native) **belum mengenali atau belum menginstal library `react-native-vector-icons`**.
+
+---
+
+## ✅ Langkah-langkah untuk memperbaiki
+
+### 1️⃣ Instal library-nya
+
+Jalankan di terminal proyek kamu:
+
+```bash
+npm install react-native-vector-icons
+```
+
+atau jika kamu pakai yarn:
+
+```bash
+yarn add react-native-vector-icons
+```
+
+---
+
+### 2️⃣ Tambahkan type declarations (untuk TypeScript)
+
+```bash
+npm install --save-dev @types/react-native-vector-icons
+```
+
+> Catatan: beberapa versi mungkin belum punya deklarasi resmi — kalau begitu, tambahkan manual (lihat langkah 4 di bawah).
+
+---
+
+### 3️⃣ (Opsional, jika pakai Android)
+
+Pastikan `react-native-vector-icons` sudah linked otomatis. Kalau belum, jalankan:
+
+```bash
+npx react-native link react-native-vector-icons
+```
+
+Lalu buka file `android/app/build.gradle` dan pastikan di bagian `apply from` sudah ada:
+
+```gradle
+apply from: "../../node_modules/react-native-vector-icons/fonts.gradle"
+```
+
+---
+
+### 4️⃣ Jika error TypeScript masih muncul
+
+Buat file deklarasi manual biar TS tidak protes.
+
+📁 Buat file `react-native-vector-icons.d.ts` di folder `@types` (atau di root proyek kamu):
+
+```ts
+declare module 'react-native-vector-icons/Ionicons' {
+  import { Icon } from 'react-native-vector-icons/Icon';
+  export default Icon;
+}
+```
+
+atau versi yang lebih aman:
+
+```ts
+declare module 'react-native-vector-icons/Ionicons' {
+  import React from 'react';
+  import { TextProps } from 'react-native';
+  export interface IconProps extends TextProps {
+    name: string;
+    size?: number;
+    color?: string;
+  }
+  export default class Ionicons extends React.Component<IconProps> {}
+}
+```
+
+Lalu pastikan `tsconfig.json` kamu menyertakan file tersebut:
+
+```json
+{
+  "compilerOptions": {
+    "typeRoots": ["./@types", "./node_modules/@types"]
+  }
+}
+```
+
+---
+
+### 5️⃣ Restart Metro bundler
+
+Setelah semuanya selesai, jalankan ulang proyek:
+
+```bash
+npx react-native start --reset-cache
+```
+
+dan di terminal lain:
+
+```bash
+npx react-native run-android
+```
+
+atau
+
+```bash
+npx react-native run-ios
+```
+
+---
+
+Kalau kamu pakai **Expo**, library ikon sudah **terintegrasi otomatis** — jadi cukup ubah impor menjadi:
+
+```tsx
+import { Ionicons } from '@expo/vector-icons';
+```
+
+tidak perlu instal manual apa pun.
+
+---
+
+Apakah kamu pakai **Expo** atau **React Native CLI** (bare workflow)?
+Supaya aku bisa kasih versi perintah yang paling tepat untuk setup-mu.
