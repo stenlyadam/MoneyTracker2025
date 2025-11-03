@@ -1,6 +1,8 @@
 import {StyleSheet, View, Image, TouchableOpacity} from 'react-native';
 import React from 'react';
 import Header from '../../components/molecules/Header';
+
+import Button from '../../components/atoms/Button';
 import Gap from '../../components/atoms/Gap';
 
 // === Irmando: Header dan Foto Profil === //
@@ -30,8 +32,12 @@ const SignUp = () => {
 
         <Gap height={24} />
 
-        {/* === Swindry: Buttons === */}
-
+  {/* === Swindry: Buttons === */}
+        <View style={styles.buttonWrapper}>
+          <Button label="Continue" />
+          <Gap height={12} />
+          <Button label="Back to Sign In" color="#8D92A3" textColor="#FFFFFF" />
+        </View>
 
       </View>
     </View>
@@ -70,4 +76,8 @@ const styles = StyleSheet.create({
     resizeMode: 'cover',
   },
 
+    buttonWrapper: {
+    marginTop: 12,
+    paddingBottom: 16,
+  },
 });
