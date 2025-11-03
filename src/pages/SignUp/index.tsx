@@ -1,8 +1,6 @@
 import {StyleSheet, View, Image, TouchableOpacity} from 'react-native';
 import React from 'react';
 import Header from '../../components/molecules/Header';
-import TextInput from '../../components/molecules/TextInput';
-import Button from '../../components/atoms/Button';
 import Gap from '../../components/atoms/Gap';
 
 // === Irmando: Header dan Foto Profil === //
@@ -28,26 +26,12 @@ const SignUp = () => {
         <Gap height={24} />
 
         {/* === Julio: Form Input === */}
-        <View style={styles.formWrapper}>
-          <TextInput label="Full Name" placeholder="Type your full name" />
-          <Gap height={16} />
-          <TextInput label="Email Address" placeholder="Type your email address" />
-          <Gap height={16} />
-          <TextInput
-            label="Password"
-            placeholder="Type your password"
-            secureTextEntry={true}
-          />
-        </View>
+
 
         <Gap height={24} />
 
         {/* === Swindry: Buttons === */}
-        <View style={styles.buttonWrapper}>
-          <Button label="Continue" />
-          <Gap height={12} />
-          <Button label="Back to Sign In" color="#8D92A3" textColor="#FFFFFF" />
-        </View>
+
 
       </View>
     </View>
@@ -86,16 +70,5 @@ const styles = StyleSheet.create({
     resizeMode: 'cover',
   },
 
-  formWrapper: {
-    marginTop: 8,
-    paddingVertical: 4,
-    borderTopWidth: 0.5,
-    borderBottomWidth: 0.5,
-    borderColor: '#E5E5E5',
-  },
 
-  buttonWrapper: {
-    marginTop: 12,
-    paddingBottom: 16,
-  },
 });
