@@ -1,14 +1,13 @@
-import {StyleSheet, View} from 'react-native';
 import React from 'react';
+import {View} from 'react-native';
 
-const Gap = ({height}) => {
-  return <View style={styles.gap(height)} />;
+interface Props {
+  height?: number;
+  width?: number;
+}
+
+const Gap: React.FC<Props> = ({height, width}) => {
+  return <View style={{height, width}} />;
 };
 
 export default Gap;
-
-const styles = StyleSheet.create({
-  gap: height => ({
-    height: height,
-  }),
-});
