@@ -1,10 +1,14 @@
 import {StyleSheet, Text, View} from 'react-native';
+import {Button} from '../../atoms';
 import React from 'react';
 
-const Header = ({label}) => {
+const Header = ({label, backButton}) => {
   return (
     <View style={styles.container}>
-      <Text style={styles.text}>{label}</Text>
+      {backButton && (
+        <Button type="icon-only" icon="icon-back" onPress={() => {}} />
+      )}
+      <Text style={styles.label}>{label}</Text>
     </View>
   );
 };
@@ -14,11 +18,15 @@ export default Header;
 const styles = StyleSheet.create({
   container: {
     backgroundColor: '#FFFFFF',
-  },
-  text: {
-    fontFamily: 'Poppins-Medium',
-    fontSize: 22,
     paddingLeft: 24,
     paddingVertical: 37,
+    flexDirection: 'row',
+    alignItems: 'center',
+  },
+  label: {
+    fontFamily: 'Poppins-Medium',
+    fontSize: 22,
+    color: '#020202',
+    marginLeft: 26,
   },
 });
