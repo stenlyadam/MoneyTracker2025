@@ -1,7 +1,6 @@
 import {StyleSheet, View, Image, TouchableOpacity} from 'react-native';
 import React from 'react';
 import Header from '../../components/molecules/Header';
-
 import Button from '../../components/atoms/Button'; 
 import TextInput from '../../components/molecules/TextInput';
 import Gap from '../../components/atoms/Gap';
@@ -29,7 +28,7 @@ const SignUp = () => {
         <Gap height={24} />
 
         {/* === Julio: Form Input === */}
-          <View style={styles.formWrapper}>
+        <View style={styles.formWrapper}>
           <TextInput label="Full Name" placeholder="Type your full name" />
           <Gap height={16} />
           <TextInput label="Email Address" placeholder="Type your email address" />
@@ -39,8 +38,7 @@ const SignUp = () => {
             placeholder="Type your password"
             secureTextEntry={true}
           />
-        </View>
-
+        </View> 
 
 
         <Gap height={24} />
@@ -88,15 +86,19 @@ const styles = StyleSheet.create({
     height: 100,
     resizeMode: 'cover',
   },
-   formWrapper: {
+
+  formWrapper: {
     marginTop: 8,
     paddingVertical: 4,
     borderTopWidth: 0.5,
     borderBottomWidth: 0.5,
     borderColor: '#E5E5E5',
   },
+
   buttonWrapper: {
     marginTop: 12,
     paddingBottom: 16,
   },
 });
+
+
