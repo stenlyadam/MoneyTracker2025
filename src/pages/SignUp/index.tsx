@@ -9,12 +9,16 @@ import React, {useState} from 'react';
 import {Button, Gap, Header, TextInput} from '../../components';
 import {NullPhoto} from '../../assets';
 
-const SignUp = () => {
+const SignUp = ({navigation}) => {
   const [photo, setPhoto] = useState(NullPhoto);
 
   return (
     <ScrollView style={styles.container}>
-      <Header label="Sign Up" backButton={true} onPress={() => {}} />
+      <Header
+        label="Sign Up"
+        backButton={true}
+        onPress={() => navigation.goBack()}
+      />
       <Gap height={24} />
       <View style={styles.contentWrapper}>
         <View style={styles.profileContainer}>
@@ -40,7 +44,10 @@ const SignUp = () => {
           secureTextEntry={true}
         />
         <Gap height={24} />
-        <Button label="Continue" onPress={() => {}} />
+        <Button
+          label="Continue"
+          onPress={() => navigation.navigate('SignIn')}
+        />
       </View>
     </ScrollView>
   );
