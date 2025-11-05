@@ -1,11 +1,6 @@
-// src/pages/SignUp/index.tsx
-import React, {useState} from 'react';
-import {StyleSheet, View, ScrollView} from 'react-native';
-import Header from '../../components/molecules/Header';
-import Avatar from '../../components/molecules/Avatar';
-import TextInput from '../../components/molecules/TextInput';
-import Button from '../../components/atoms/Button';
-import Gap from '../../components/atoms/Gap';
+import {StyleSheet, Text, View, TouchableOpacity, Image} from 'react-native';
+import React from 'react';
+import BackButton from '../../assets/Backbutton.svg';
 
 type NavigationProp = {
   goBack: () => void;
@@ -31,58 +26,56 @@ const SignUp: React.FC<Props> = ({navigation}) => {
   };
 
   return (
-    <ScrollView
-      showsVerticalScrollIndicator={false}
-      contentContainerStyle={styles.scrollContainer}>
-      <View style={styles.container}>
-        <Header title="Sign Up" onBack={() => navigation.goBack()} />
-        <Avatar source={require('../../assets/null-photo-1.png')} />
-
-        <Gap height={40} />
-
-        <View style={styles.form}>
-          <TextInput
-            label="Full Name"
-            placeholder="Type your full name"
-            value={fullName}
-            onChangeText={setFullName}
-          />
-
-          <TextInput
-            label="Email Address"
-            placeholder="Type your email address"
-            value={email}
-            onChangeText={setEmail}
-            keyboardType="email-address"
-          />
-
-          <TextInput
-            label="Password"
-            placeholder="Type your password"
-            value={password}
-            onChangeText={setPassword}
-            secureTextEntry
-          />
-        </View>
-
-        <Gap height={20} />
-
-        <Button title="Continue" onPress={handleContinue} />
+    <View style={styles.container}>
+      {/* HEADER */}
+      <View style={styles.header}>
+        <TouchableOpacity
+          activeOpacity={0.7}
+          onPress={() => navigation.goBack()}>
+          <BackButton width={26} height={26} />
+        </TouchableOpacity>
+        <Text style={styles.headerText}>Sign Up</Text>
       </View>
-    </ScrollView>
+
+      {/* AVATAR */}
+      <View style={styles.avatarWrapper}>
+        <Image
+          source={require('../../assets/null-photo-1.png')}
+          style={styles.avatar}
+        />
+      </View>
+    </View>
   );
 };
 
 export default SignUp;
 
 const styles = StyleSheet.create({
-  scrollContainer: {flexGrow: 1},
-  container: {
-    flex: 1,
-    backgroundColor: '#FFFFFF',
+  container: {flex: 1, backgroundColor: '#FFFFFF'},
+
+  header: {
+    flexDirection: 'row',
+    alignItems: 'center',
     paddingHorizontal: 24,
-    paddingTop: 10,
-    paddingBottom: 30,
+    paddingVertical: 30,
   },
-  form: {marginTop: 10},
+
+  headerText: {
+    fontFamily: 'Poppins-Medium',
+    fontSize: 22,
+    marginLeft: 12,
+  },
+
+  avatarWrapper: {
+    alignItems: 'center',
+    marginTop: 40, // bisa kamu atur naik/turun sesuai selera
+  },
+
+  avatar: {
+    width: 110,
+    height: 110,
+    borderRadius: 55,
+    borderWidth: 1.5,
+    borderColor: '#CFCFCF',
+  },
 });
