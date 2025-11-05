@@ -2,7 +2,29 @@ import {StyleSheet, Text, View, TouchableOpacity, Image} from 'react-native';
 import React from 'react';
 import BackButton from '../../assets/Backbutton.svg';
 
-const SignUp = ({navigation}) => {
+type NavigationProp = {
+  goBack: () => void;
+  navigate?: (screen: string, params?: any) => void;
+};
+
+interface Props {
+  navigation: NavigationProp;
+}
+
+const SignUp: React.FC<Props> = ({navigation}) => {
+  const [fullName, setFullName] = useState('');
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
+
+  const handleContinue = () => {
+    console.log('Full Name:', fullName);
+    console.log('Email:', email);
+    console.log('Password:', password);
+
+    // contoh navigasi ke SignIn (aktifkan kalau ada halaman SignIn)
+    // navigation.navigate && navigation.navigate('SignIn');
+  };
+
   return (
     <View style={styles.container}>
       {/* HEADER */}

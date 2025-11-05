@@ -15,7 +15,7 @@ berarti TypeScript (dan mungkin bundler React Native) **belum mengenali atau bel
 Jalankan di terminal proyek kamu:
 
 ```bash
-npm install react-native-vector-icons
+npm install react-native-vector-icons //
 ```
 
 atau jika kamu pakai yarn:
@@ -29,7 +29,7 @@ yarn add react-native-vector-icons
 ### 2️⃣ Tambahkan type declarations (untuk TypeScript)
 
 ```bash
-npm install --save-dev @types/react-native-vector-icons
+npm install --save-dev @types/react-native-vector-icons //
 ```
 
 > Catatan: beberapa versi mungkin belum punya deklarasi resmi — kalau begitu, tambahkan manual (lihat langkah 4 di bawah).
@@ -60,7 +60,7 @@ Buat file deklarasi manual biar TS tidak protes.
 
 ```ts
 declare module 'react-native-vector-icons/Ionicons' {
-  import { Icon } from 'react-native-vector-icons/Icon';
+  import {Icon} from 'react-native-vector-icons/Icon';
   export default Icon;
 }
 ```
@@ -70,7 +70,7 @@ atau versi yang lebih aman:
 ```ts
 declare module 'react-native-vector-icons/Ionicons' {
   import React from 'react';
-  import { TextProps } from 'react-native';
+  import {TextProps} from 'react-native';
   export interface IconProps extends TextProps {
     name: string;
     size?: number;
@@ -117,7 +117,7 @@ npx react-native run-ios
 Kalau kamu pakai **Expo**, library ikon sudah **terintegrasi otomatis** — jadi cukup ubah impor menjadi:
 
 ```tsx
-import { Ionicons } from '@expo/vector-icons';
+import {Ionicons} from '@expo/vector-icons';
 ```
 
 tidak perlu instal manual apa pun.
