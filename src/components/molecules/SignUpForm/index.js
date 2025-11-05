@@ -1,7 +1,7 @@
 import React, {useState} from 'react';
 import {View, Text, TextInput, StyleSheet} from 'react-native';
-import Button from '../atoms/Button';
-import ProfilePhoto from '../atoms/ProfilePhoto';
+import Button from '../../atoms/Button';
+import ProfilePhoto from '../../atoms/ProfilePhoto';
 
 const SignUpForm = () => {
   const [name, setName] = useState('');

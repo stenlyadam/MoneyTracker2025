@@ -5,7 +5,7 @@ const ProfilePhoto: React.FC = () => {
   return (
     <View style={styles.container}>
       <Image
-        source={require('../../assets/images/profile-placeholder.png')}
+        source={require('../../../assets/avatar.png')}
         style={styles.image}
       />
     </View>
